@@ -5,22 +5,22 @@
 #    args: ['clean', 'install', '-DskipTests']
  steps:
  # build the container image
- - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/$PROJECT_ID/quickstart:$COMMIT_SHA', '.']
+ - name: 'gcr.io/higginsc2150879/docker'
+   args: ['build', '-t', 'gcr.io/$PROJECT_ID/[docker-test]:$COMMIT_SHA', '.']
  # push the container image to Container Registry
- - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'gcr.io/$PROJECT_ID/quickstart:$COMMIT_SHA']
+ - name: 'gcr.io/higginsc2150879/docker'
+   args: ['push', 'gcr.io/$PROJECT_ID/[docker-test]:$COMMIT_SHA']
  # Deploy container image to Cloud Run
- - name: 'gcr.io/cloud-builders/gcloud'
+ - name: 'gcr.io/higginsc2150879/gcloud'
    args:
    - 'run'
    - 'deploy'
    - '[docker-test]'
    - '--image'
-   - 'gcr.io/$PROJECT_ID/quickstart:$COMMIT_SHA'
+   - 'gcr.io/$PROJECT_ID/docker-test:$COMMIT_SHA'
    - '--region'
    - '[europe-west1]'
    - '--platform'
    - 'managed'
  images:
- - 'gcr.io/$PROJECT_ID/quickstart:$COMMIT_SHA'
+ - 'gcr.io/$PROJECT_ID/docker-test:$COMMIT_SHA'
