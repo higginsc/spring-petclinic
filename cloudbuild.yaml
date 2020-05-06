@@ -3,3 +3,25 @@
 #  - name: maven:3.6.3-jdk-8-slim
 #    entrypoint: 'mvn'
 #    args: ['clean', 'install', '-DskipTests']
+
+ steps:
+ # build the container image
+ - name: 'gcr.io/higginsc2150879/docker'
+   args: ['build', '-t', 'gcr.io/higginsc2150879/quickstart-image@sha256:b6530b6289c9a5f6944e441c383fa75e1c7496515edd213b4a6259fc14661fd4:$COMMIT_SHA', '.']
+ # push the container image to Container Registry
+ - name: 'gcr.io/higginsc2150879/docker'
+   args: ['push', 'gcr.io/higginsc2150879/quickstart-image@sha256:b6530b6289c9a5f6944e441c383fa75e1c7496515edd213b4a6259fc14661fd4:$COMMIT_SHA']
+ # Deploy container image to Cloud Run
+ - name: 'gcr.io/higginsc2150879/gcloud'
+   args:
+   - 'run'
+   - 'deploy'
+   - '[docker-test]'
+   - '--image'
+   - 'gcr.io/higginsc2150879/quickstart-image@sha256:b6530b6289c9a5f6944e441c383fa75e1c7496515edd213b4a6259fc14661fd4:$COMMIT_SHA'
+   - '--region'
+   - '[europe-west1]'
+   - '--platform'
+   - 'managed'
+ images:
+ - 'gcr.io/higginsc2150879/quickstart-image@sha256:b6530b6289c9a5f6944e441c383fa75e1c7496515edd213b4a6259fc14661fd4:$COMMIT_SHA'
