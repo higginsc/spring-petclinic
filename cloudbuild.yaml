@@ -45,8 +45,7 @@ steps:
 # Get info about an image. This effectively runs the "docker inspect" command on
 # the image built above.
 - name: 'gcr.io/$PROJECT_ID/docker'
-  args: ['inspect', 'gcr.io/$PROJECT_ID/docker']
-  wait_for: ['latest']
+  args: ['push', 'gcr.io/[PROJECT_ID]/[IMAGE]:$COMMIT_SHA']
 # Execute a container. The "busybox" container is executed within the docker
 # build step to echo "Hello, world!"
 - name: 'gcr.io/$PROJECT_ID/docker'
