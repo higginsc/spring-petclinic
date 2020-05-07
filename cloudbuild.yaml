@@ -1,6 +1,6 @@
 steps:
 # Build the container image
-- name: 'gcr.io/higginsc2150879/quickstart-image'
+- name: 'gcr.io/higginsc2150879/quickstart-image:latest'
   args: ['build', '-t', 'gcr.io/higginsc2150879/quickstart-image:$COMMIT_SHA', '.']
 # Push the image to Container Registry
 - name: 'gcr.io/higginsc2150879/quickstart-image'
