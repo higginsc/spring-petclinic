@@ -50,10 +50,9 @@ steps:
 # Execute a container. The "busybox" container is executed within the docker
 # build step to echo "Hello, world!"
 - name: 'gcr.io/$PROJECT_ID/docker'
- # args: ['run', 'busybox', 'echo', 'Hello, world!']
- # wait_for: ['latest']
- args: ['run', 'deploy', 'docker', '--image', 'gcr.io/[PROJECT_ID]/[IMAGE]:$COMMIT_SHA', '--region', 'europe-west1' '--platform', 'managed']
-
-images:
+ # args: ['run', 'busybox', 'echo', 'Hello, world!'] 
+  args: ['run', 'deploy', 'docker', '--image', 'gcr.io/[PROJECT_ID]/[IMAGE]:$COMMIT_SHA', '--region', 'europe-west1' '--platform', 'managed']
+  wait_for: ['latest']
+  images:
 - 'gcr.io/$PROJECT_ID/docker:latest'
 - 'gcr.io/$PROJECT_ID/docker:19.03.8'
