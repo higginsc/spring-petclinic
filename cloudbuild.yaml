@@ -1,12 +1,12 @@
 steps:
 # Build the container image
-- name: 'eu.gcr.io/higginsc2150879/quickstart-image'
+- name: 'gcr.io/cloud-builders/gcloud'
   args: ['build', '-t', 'gcr.io/higginsc2150879/quickstart-image', '.']
 # Push the container image to Container Registry
-- name: 'eu.gcr.io/higginsc2150879/quickstart-image'
+- name: 'gcr.io/cloud-builders/gcloud'
   args: ['push', 'gcr.io/higginsc2150879/quickstart-image']
 # Deploy container image to Cloud Run
-- name: 'eu.gcr.io/higginsc2150879/quickstart-image'
-  args: ['run', 'deploy', 'docker-test25189', '--image', 'gcr.io/higginsc2150879/quickstart-image', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['run', 'deploy', 'quickstart-image', '--image', 'gcr.io/higginsc2150879/quickstart-image', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 images:
-- eu.gcr.io/higginsc2150879/quickstart-image
+- gcr.io/higginsc2150879/quickstart-image
