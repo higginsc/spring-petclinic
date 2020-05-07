@@ -1,9 +1,9 @@
 steps:
 # Build the container image
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/quickstart-image'
   args: ['build', '-t', 'gcr.io/higginsc2150879/quickstart-image:$COMMIT_SHA', '.']
 # Push the image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/quickstart-image'
   args: ['push', 'gcr.io/higginsc2150879/quickstart-image:$COMMIT_SHA']
 # Deploy image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
