@@ -49,7 +49,7 @@ steps:
 # Execute a container. The "busybox" container is executed within the docker
 # build step to echo "Hello, world!"
 - name: 'gcr.io/$PROJECT_ID/docker'
-  args: ['run', 'deploy', 'docker', '--image', 'gcr.io/[PROJECT_ID]/[IMAGE]:$COMMIT_SHA', '--region', 'europe-west1' '--platform', 'managed']
+  args: ['run', 'deploy', 'docker', '--image', 'gcr.io/[PROJECT_ID]/[IMAGE]:$COMMIT_SHA', '--region', 'europe-west1', '--platform', 'managed']
   wait_for: ['latest']
   images:
 - 'gcr.io/$PROJECT_ID/docker:latest'
