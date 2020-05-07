@@ -52,16 +52,7 @@ steps:
 - name: 'gcr.io/$PROJECT_ID/docker'
  # args: ['run', 'busybox', 'echo', 'Hello, world!']
  # wait_for: ['latest']
- args:
-  - 'run'
-  - 'deploy'
-  - '[SERVICE_NAME]'
-  - '--image'
-  - 'gcr.io/[PROJECT_ID]/[IMAGE]:$COMMIT_SHA'
-  - '--region'
-  - '[REGION]'
-  - '--platform'
-  - 'managed'
+ args: ['run', 'deploy', 'docker', '--image', 'gcr.io/[PROJECT_ID]/[IMAGE]:$COMMIT_SHA', '--region', 'europe-west1' '--platform', 'managed']
 
 images:
 - 'gcr.io/$PROJECT_ID/docker:latest'
