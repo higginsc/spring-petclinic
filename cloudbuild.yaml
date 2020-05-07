@@ -5,4 +5,4 @@
 
 # Extra step to Deploy New Revision to Cloud Run
 - name: "gcr.io/cloud-builders/gcloud"
-  args: ['beta', 'run', 'deploy', 'quickstart-image' -image', 'gcr.io/higginsc2150879/quickstart-image', '--region', 'europe-west1', '--allow-unauthenticated', '--platform', 'managed']
+  args: ['run', 'deploy', 'quickstart-image' '--image', 'gcr.io/higginsc2150879/quickstart-image', '--region', 'europe-west1', '--allow-unauthenticated', '--platform', 'managed']
