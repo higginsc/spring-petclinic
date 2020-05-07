@@ -1,12 +1,12 @@
 steps:
 # Build the container image
-- name: 'gcr.io/cloud-builders/quickstart-image'
+- name: 'gcr.io/higginsc2150879/quickstart-image'
   args: ['build', '-t', 'gcr.io/higginsc2150879/quickstart-image:$COMMIT_SHA', '.']
 # Push the image to Container Registry
-- name: 'gcr.io/cloud-builders/quickstart-image'
+- name: 'gcr.io/higginsc2150879/quickstart-image'
   args: ['push', 'gcr.io/higginsc2150879/quickstart-image:$COMMIT_SHA']
 # Deploy image to Cloud Run
-- name: 'gcr.io/cloud-builders/gcloud'
+- name: 'gcr.io/higginsc2150879/gcloud'
   args:
   - 'run'
   - 'deploy'
