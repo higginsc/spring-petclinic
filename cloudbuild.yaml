@@ -51,6 +51,7 @@ steps:
 - name: 'gcr.io/$PROJECT_ID/docker'
   args: ['run', 'deploy', 'docker', '--image', 'gcr.io/[PROJECT_ID]/[IMAGE]:$COMMIT_SHA', '--region', 'europe-west1', '--platform', 'managed']
   wait_for: ['latest']
-  images:
+  
+images:
 - 'gcr.io/$PROJECT_ID/docker:latest'
 - 'gcr.io/$PROJECT_ID/docker:19.03.8'
