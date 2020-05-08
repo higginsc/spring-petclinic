@@ -10,5 +10,5 @@
    args: ['package','-Dmaven.test.skip=true']
 
 - name: gcr.io/cloud-builders/docker
-  args: ['build', '-t', 'gcr.io/higginsc2150879/docker-test25189', '--build-arg=JAR_FILE=target/build-artifact']
-images: ['gcr.io/higginsc2150879/docker-test25189']
+  args: ['build', '-t', 'eu.gcr.io/higginsc2150879/appengine/default.20200505t211040', '--build-arg=JAR_FILE=target/build-artifact']
+images: ['eu.gcr.io/higginsc2150879/appengine/default.20200505t211040']
