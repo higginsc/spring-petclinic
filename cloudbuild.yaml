@@ -3,8 +3,7 @@ steps:
 - name: maven:3.6.3-jdk-8-slim
   entrypoint: 'mvn'
   args: ['clean', 'install', '-DskipTests']
-   
-steps:
+
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy']
   timeout: '400s'
