@@ -7,5 +7,5 @@
 steps:
 - name: 'gcr.io/higginsc2150879/gcloud'
   args: ['app', 'deploy']
-  timeout: '1600s'
+  timeout: '400s'
    
