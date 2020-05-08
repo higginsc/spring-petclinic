@@ -5,7 +5,7 @@
 #   args: ['clean', 'install', '-DskipTests']
    
 steps:
-- name: 'gcr.io/higginsc2150879/gcloud'
+- name: 'eu.gcr.io/higginsc2150879/gcloud'
   args: ['app', 'deploy']
   timeout: '400s'
    
